@@ -30,4 +30,10 @@ if( USE_TBB )
     endif()
     install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/ppc_onetbb/install/"
             DESTINATION "${CMAKE_INSTALL_PREFIX}")
+
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        set(TBB_LIB "tbb_debug")
+    else()
+        set(TBB_LIB "tbb")
+    endif()
 endif( USE_TBB )
